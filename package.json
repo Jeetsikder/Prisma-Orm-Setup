@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "pm2-start": "pm2 describe dev_server > /dev/null || pm2 start dist/index.js --name dev_server",
     "pm2-restart": "pm2 restart dev_server",
     "deploy": "npm run build && (pm2 describe dev_server > /dev/null && pm2 restart dev_server || pm2 start dist/index.js --name dev_server)"
